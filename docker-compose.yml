@@ -18,8 +18,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=admin
       - SPRING_DATASOURCE_PASSWORD=12345
       - KINOPOISK_API_URL=https://kinopoiskapiunofficial.tech
-      - KINOPOISK_API_KEY=a39fae34-2a0b-4384-8435-5b07e66e8a89
-      - JWT_SECRET=KriterikaSecretKeyForJwtTokenGeneration2024!@#$%^&*()
+      - KINOPOISK_API_KEY=YOUR_API_KEY_HERE
+      - JWT_SECRET=YOUR_JWT_SECRET_HERE
       - JWT_EXPIRATION=86400000
     depends_on:
       - db
