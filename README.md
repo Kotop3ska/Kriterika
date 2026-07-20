@@ -169,6 +169,5 @@ A Kinopoisk API key is required for the application to work:
 # Скриншоты / Screenshots
 
 <div align="center">
-  <img src="screenshots/screen_1.png" width="650">
-  <img src="screenshots/screen_2.png" width="650"> 
+  <img src="screenshots/screen.png" width="800">
 </div>
