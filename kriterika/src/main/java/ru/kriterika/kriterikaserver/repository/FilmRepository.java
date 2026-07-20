@@ -24,4 +24,12 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
 
 	@Query("SELECT DISTINCT f FROM Film f JOIN f.filmCountries fc WHERE fc.countryId = :countryId")
 	Page<Film> findByCountryId(@Param("countryId") Integer countryId, Pageable pageable);
+
+	@Query("SELECT DISTINCT f FROM Film f " +
+			"JOIN f.filmGenres fg " +
+			"JOIN f.filmCountries fc " +
+			"WHERE fg.genreId = :genreId AND fc.countryId = :countryId")
+	Page<Film> findByGenreIdAndCountryId(@Param("genreId") Integer genreId,
+										 @Param("countryId") Integer countryId,
+										 Pageable pageable);
 }

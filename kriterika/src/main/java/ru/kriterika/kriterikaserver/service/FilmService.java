@@ -288,6 +288,28 @@ public class FilmService {
 		return saved;
 	}
 
+	public Page<Film> findByGenreIdAndCountryId(Integer genreId, Integer countryId, Pageable pageable) {
+		Page<Film> results = filmRepository.findByGenreIdAndCountryId(genreId, countryId, pageable);
+		if (results.getTotalElements() >= pageable.getPageSize()) {
+			return results;
+		}
+		for (int p = 1; p <= 5; p++) {
+			KinopoiskFilterResponseDto apiResponse = kinopoiskApiClient.getFilmsByFilter(genreId, countryId, p);
+			if (apiResponse == null || apiResponse.getItems() == null || apiResponse.getItems().isEmpty()) {
+				break;
+			}
+			for (KinopoiskFilterFilmDto dto : apiResponse.getItems()) {
+				if (filmRepository.findById(dto.getKinopoiskId()).isEmpty()) {
+					saveFromFilterDto(dto);
+				}
+			}
+			if (p < 5) {
+				try { Thread.sleep(200); } catch (InterruptedException ignored) {}
+			}
+		}
+		return filmRepository.findByGenreIdAndCountryId(genreId, countryId, pageable);
+	}
+
 	public Film save(Film film) {
 		return filmRepository.save(film);
 	}

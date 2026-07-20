@@ -57,6 +57,8 @@ public class FilmController {
 			films = filmService.searchByKeyword(keyword, pageable);
 		} else if (year != null) {
 			films = filmService.findByYear(year, pageable);
+		} else if (genreId != null && countryId != null) {
+			films = filmService.findByGenreIdAndCountryId(genreId, countryId, pageable);
 		} else if (genreId != null) {
 			films = filmService.findByGenreId(genreId, pageable);
 		} else if (countryId != null) {
