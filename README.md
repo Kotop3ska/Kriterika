@@ -40,7 +40,7 @@ docker compose up -d --build
 
 4. Откройте в браузере: http://localhost
 
-### Ручной запуск (для разработки)
+### Ручной запуск 
 
 Для ручного запуска необходимы: Java 21+, Node.js 20+, PostgreSQL 16.
 
@@ -82,22 +82,6 @@ npm run dev
 
 ---
 
-## Стек технологий
-
-**Сервер:**
-- Java 21, Spring Boot 4.1
-- Spring Data JPA, Hibernate
-- PostgreSQL 16
-- Spring Security + JWT
-
-**Клиент:**
-- React 19, TypeScript
-- Material UI
-- Vite
-- Axios
-
----
-
 # Kriterika (EN)
 
 > A web service for rating films by multiple criteria
@@ -111,7 +95,7 @@ This project implements a web service for rating films by multiple criteria with
 The application is built using a three-tier architecture: PostgreSQL DBMS + Java server (Spring Boot) + React client (TypeScript).
 
 Functionality:
-- Film search with filtering by genre, country, and year
+- Film search with filtering by genre and country
 - Film card viewing with data from Kinopoisk API
 - Registration and authorization (JWT)
 - Creating, editing, and deleting reviews
@@ -121,7 +105,7 @@ Functionality:
 
 ## Running the Application
 
-### Using Docker (recommended)
+### Using Docker
 
 Docker and Docker Compose are required.
 
@@ -140,7 +124,7 @@ docker compose up -d --build
 
 4. Open in browser: http://localhost
 
-### Manual setup (for development)
+### Manual setup
 
 Java 21+, Node.js 20+, PostgreSQL 16 are required.
 
@@ -182,16 +166,9 @@ A Kinopoisk API key is required for the application to work:
 
 ---
 
-## Tech Stack
+# Скриншоты / Screenshots
 
-**Server:**
-- Java 21, Spring Boot 4.1
-- Spring Data JPA, Hibernate
-- PostgreSQL 16
-- Spring Security + JWT
-
-**Client:**
-- React 19, TypeScript
-- Material UI
-- Vite
-- Axios
+<div align="center">
+  <img src="screenshots/screen_1.png" width="650">
+  <img src="screenshots/screen_2.png" width="650"> 
+</div>
