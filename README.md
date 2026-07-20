@@ -6,7 +6,7 @@
 
 ## Идея
 
-Данный проект реализует веб-сервис для оценки фильмов поultiple критериям с интеграцией Kinopoisk API.
+Данный проект реализует веб-сервис для оценки фильмов по критериям с интеграцией Kinopoisk API.
 
 Приложение построено по трёхуровневой архитектуре: СУБД PostgreSQL + серверная часть на Java (Spring Boot) + клиентская часть на React (TypeScript).
 
@@ -31,7 +31,7 @@ git clone https://github.com/Kotop3ska/Kriterika.git
 cd Kriterika
 ```
 
-2. В файле `docker-compose.yml` замените `YOUR_API_KEY_HERE` на ключ Kinopoisk API (см. раздел "Получение API ключа") и `YOUR_JWT_SECRET_HERE` на любую случайную строку.
+2. В файле `docker-compose.yml` замените `YOUR_API_KEY_HERE` на ключ Kinopoisk API (см. раздел "Получение API ключа").
 
 3. Запустите приложение:
 ```bash
@@ -52,7 +52,7 @@ docker exec -i kriterika_db psql -U admin -d kriterika < create_tables.sql
 docker exec -i kriterika_db psql -U admin -d kriterika < seed_data.sql
 ```
 
-2. В файле `kriterika/src/main/resources/application.properties` замените `YOUR_API_KEY_HERE` и `YOUR_JWT_SECRET_HERE`.
+2. В файле `kriterika/src/main/resources/application.properties` замените `YOUR_API_KEY_HERE`.
 
 3. Запустите сервер:
 ```bash
@@ -131,7 +131,7 @@ git clone https://github.com/Kotop3ska/Kriterika.git
 cd Kriterika
 ```
 
-2. In the `docker-compose.yml` file, replace `YOUR_API_KEY_HERE` with a Kinopoisk API key (see "Getting an API Key" section) and `YOUR_JWT_SECRET_HERE` with any random string.
+2. In the `docker-compose.yml` file, replace `YOUR_API_KEY_HERE` with a Kinopoisk API key (see "Getting an API Key" section).
 
 3. Start the application:
 ```bash
@@ -152,7 +152,7 @@ docker exec -i kriterika_db psql -U admin -d kriterika < create_tables.sql
 docker exec -i kriterika_db psql -U admin -d kriterika < seed_data.sql
 ```
 
-2. In `kriterika/src/main/resources/application.properties`, replace `YOUR_API_KEY_HERE` and `YOUR_JWT_SECRET_HERE`.
+2. In `kriterika/src/main/resources/application.properties`, replace `YOUR_API_KEY_HERE`.
 
 3. Start the server:
 ```bash
