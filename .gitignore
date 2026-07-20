@@ -1,0 +1,19 @@
+# Сервер
+kriterika/target/
+kriterika/.idea/
+kriterika/*.iml
+kriterika/bin/
+
+# Клиент
+client/node_modules/
+client/dist/
+
+# Docker volumes
+pgdata/
+
+# Системные
+.DS_Store
+*.log
+
+# Секреты
+.env

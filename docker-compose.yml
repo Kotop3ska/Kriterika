@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: kriterika
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/create_tables.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/seed_data.sql:/docker-entrypoint-initdb.d/02-seed.sql
+    restart: unless-stopped
+
+  server:
+    build: ./kriterika
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/kriterika
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=12345
+      - KINOPOISK_API_URL=https://kinopoiskapiunofficial.tech
+      - KINOPOISK_API_KEY=a39fae34-2a0b-4384-8435-5b07e66e8a89
+      - JWT_SECRET=KriterikaSecretKeyForJwtTokenGeneration2024!@#$%^&*()
+      - JWT_EXPIRATION=86400000
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  client:
+    build: ./client
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+    restart: unless-stopped
+
+volumes:
+  pgdata:
